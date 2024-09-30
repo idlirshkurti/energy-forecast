@@ -1,0 +1,34 @@
+name: Daily Energy Forecast
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  run-forecast:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas
+
+    - name: Run forecast script
+      run: python energy_forecast/main.py
+
+    - name: Upload CSV to repository
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add energy_forecast/forecast_*.csv
+        git commit -m "Add daily forecast"
+        git push
