@@ -10,12 +10,7 @@ This repository contains a Python script that fetches hourly energy production d
 
 ## Setup
 
-1. Ensure you have Python 3.x installed.
-2. Install required libraries:
-
-```bash
-pip install requests pandas
-```
+Ensure you have the necesary requirements installed as shown in `pyproject.toml`
 
 ## Usage
 
