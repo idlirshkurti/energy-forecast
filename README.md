@@ -1,4 +1,3 @@
-Here’s a sample README file for your GitHub repository:
 # Energy Forecast
 
 This repository contains a Python script that fetches hourly energy production data for the DK1 price area from the Energi Data Service API. The script runs daily via GitHub Actions, using the last 24 hours of data as a forecast for the next 24 hours. Forecasts are saved as CSV files in the repository.
