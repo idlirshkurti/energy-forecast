@@ -1,3 +1,4 @@
+import os
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
@@ -16,9 +17,11 @@ def fetch_energy_data():
     # Process and structure the data
     if data['records']:
         df = pd.DataFrame(data['records'])
-        df.to_csv(f"energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
+        df.to_csv(f"./energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
     else:
         print("No data available for the given date range.")
+
+    print("CSV file created:", os.path.exists(f"energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv"))
 
 if __name__ == "__main__":
     fetch_energy_data()
