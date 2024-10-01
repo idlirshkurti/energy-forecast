@@ -14,8 +14,11 @@ def fetch_energy_data():
     data = response.json()
 
     # Process and structure the data
-    df = pd.DataFrame(data['records'])  # Assuming the API returns data in 'records'
-    df.to_csv(f"forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
+    if data['records']:
+        df = pd.DataFrame(data['records'])
+        df.to_csv(f"energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
+    else:
+        print("No data available for the given date range.")
 
 if __name__ == "__main__":
     fetch_energy_data()
