@@ -17,7 +17,7 @@ def fetch_energy_data():
     # Process and structure the data
     if data['records']:
         df = pd.DataFrame(data['records'])
-        df.to_csv(f"./energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
+        df.to_csv(f"/energy_forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
     else:
         print("No data available for the given date range.")
 
