@@ -2,7 +2,7 @@ name: Daily Energy Forecast
 
 on:
   schedule:
-    - cron: '13 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 13 * * *'  # Runs daily at midnight UTC
 
 jobs:
   run-forecast:
