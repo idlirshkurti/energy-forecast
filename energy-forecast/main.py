@@ -3,8 +3,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 def fetch_energy_data():
-    yesterday = datetime.now() - timedelta(days=15)
-    today = datetime.now() - timedelta(days=14)
+    yesterday = datetime.now() - timedelta(days=10)
+    today = datetime.now() - timedelta(days=9)
 
     start_date = yesterday.strftime('%Y-%m-%d')
     end_date = today.strftime('%Y-%m-%d')
@@ -16,9 +16,17 @@ def fetch_energy_data():
     # Process and structure the data
     if data['records']:
         df = pd.DataFrame(data['records'])
+        # Filter such that we only get the rows with Solar ProductionType
+        df = df[df['ProductionType'] == 'Solar']
+        # Filter only the Production_MWh column
+        df = df[['HourDK', 'Production_MWh']]
+        # Aggreate the Production_MWh column such that it is the sum of all values with the same HourDK
+        df = df.groupby('HourDK').sum().reset_index()
         df.to_csv(f"energy-forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
     else:
         print("No data available for the given date range.")
+    
+    return df
 
 if __name__ == "__main__":
     fetch_energy_data()
