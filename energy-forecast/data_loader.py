@@ -3,8 +3,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 def fetch_energy_data():
-    yesterday = datetime.now() - timedelta(days=10)
-    today = datetime.now() - timedelta(days=9)
+    yesterday = datetime.now() - timedelta(days=15)
+    today = datetime.now() - timedelta(days=14)
 
     start_date = yesterday.strftime('%Y-%m-%d')
     end_date = today.strftime('%Y-%m-%d')
