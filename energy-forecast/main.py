@@ -1,7 +1,7 @@
 import pandas as pd
 from data_loader import fetch_energy_data
 from forecast import make_forecast
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def save_forecast(df: pd.DataFrame):
     today = datetime.now() - timedelta(days=9)
