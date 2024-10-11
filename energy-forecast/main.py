@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 def save_forecast(df: pd.DataFrame):
     today = datetime.now() - timedelta(days=9)
-    df.to_csv(f"energy-forecast/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
+    df.to_csv(f"forecast_data/forecast_{today.strftime('%Y_%m_%d')}.csv", index=False)
 
 if __name__ == "__main__":
     # Load the data
