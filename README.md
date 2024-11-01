@@ -21,9 +21,7 @@ This Streamlit module provides a tool for forecasting solar energy production in
     poetry install
     ```
 
-3. **Add Model File**: Place the pre-trained LSTM model file (`solar_energy_production_model.keras`) in the `models/` directory.
-
-4. **Run the Streamlit App**:
+3. **Run the Streamlit App**:
     ```bash
     poetry shell
     streamlit run app.py
