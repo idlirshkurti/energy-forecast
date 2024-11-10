@@ -44,7 +44,3 @@ This Streamlit module provides a tool for forecasting solar energy production in
 ### Notes
 - **Data Availability**: The app depends on Energinet’s data availability. Ensure the selected forecast date has sufficient historical data for accurate predictions.
 - **Calibration Period**: The app retrieves 30 days of historical data by default for conformal prediction calibration. Adjust this if necessary.
-
----
-
-This section should help users understand the purpose and functionality of the Streamlit app, guiding them through setup, usage, and data requirements. Let me know if there’s anything specific you’d like added or adjusted!
